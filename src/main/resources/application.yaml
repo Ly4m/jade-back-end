@@ -1,0 +1,18 @@
+security:
+  basic:
+    enabled: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/jade
+    username: postgres
+    password: jetdev
+    driver-class-name: org.postgresql.Driver
+
+mybatis:
+  configuration-properties:
+    schema-name: jade
+
+logging:
+  level:
+    org.springframework.boot: DEBUG
