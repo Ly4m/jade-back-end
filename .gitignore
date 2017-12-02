@@ -16,6 +16,10 @@
 *.iml
 *.ipr
 
+
+# IntelliJ
+/out/
+
 ### NetBeans ###
 nbproject/private/
 build/
