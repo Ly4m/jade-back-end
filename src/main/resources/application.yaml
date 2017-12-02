@@ -10,9 +10,10 @@ spring:
     driver-class-name: org.postgresql.Driver
 
 mybatis:
-  configuration-properties:
-    schema-name: jade
+  typeAliasesPackage: fr.jetdev.jade.models
+  mapperLocations: classpath*:**/mappers/*.xml
 
 logging:
   level:
     org.springframework.boot: DEBUG
+    fr.jetdev.jade.repositories.ActivityReportDao: DEBUG
