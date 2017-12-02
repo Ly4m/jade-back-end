@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fr.jetdev.jade.repositories.CollaboratorDao">
+
+    <select id="fetchAllCollaborators" resultType="Collaborator">
+        SELECT *
+        FROM collaborator
+    </select>
+
+    <select id="fetchById" resultType="Collaborator">
+        SELECT *
+        FROM Collaborator
+        WHERE id = #{id}
+    </select>
+
+</mapper>
