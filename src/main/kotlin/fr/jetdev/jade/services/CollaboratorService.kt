@@ -9,8 +9,12 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 internal class CollaboratorService(val collaboratorDao: CollaboratorDao) {
 
-    fun fetchCity(collaboratorId: Long): Collaborator? {
-        return collaboratorDao.findById(collaboratorId)
+    fun fetchCollaboratorById(collaboratorId: Long): Collaborator? {
+        return collaboratorDao.fetchById(collaboratorId)
+    }
+
+    fun fetchAllCollaborators(): List<Collaborator> {
+        return collaboratorDao.fetchAllCollaborators();
     }
 
 }
