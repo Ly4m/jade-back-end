@@ -4,9 +4,9 @@ security:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/jade
-    username: postgres
-    password: jetdev
+    url: jdbc:postgresql://54.37.20.87:5432/jade
+    username: jadmin
+    password: jetdev2018!
     driver-class-name: org.postgresql.Driver
 
 mybatis:
