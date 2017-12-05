@@ -17,4 +17,8 @@ internal class CollaboratorService(val collaboratorDao: CollaboratorDao) {
         return collaboratorDao.fetchAllCollaborators();
     }
 
+    fun updateCollaboratorById(collaborator: Collaborator) {
+        collaboratorDao.updateCollaboratorById(collaborator);
+    }
+
 }
