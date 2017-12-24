@@ -16,7 +16,7 @@
         WHERE id = #{id}
     </select>
 
-    <update id="updateCollaboratorById" parameterType="Collaborator">
+    <update id="updateCollaborator" parameterType="Collaborator">
         UPDATE collaborator
         SET firstname = #{firstName}, lastname = #{lastName}, function = #{function}, gravatar = #{gravatar}
         WHERE id = #{id};

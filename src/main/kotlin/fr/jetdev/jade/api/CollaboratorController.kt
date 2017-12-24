@@ -4,7 +4,6 @@ import fr.jetdev.jade.models.Collaborator
 import fr.jetdev.jade.services.CollaboratorService
 import org.springframework.web.bind.annotation.*
 
-@CrossOrigin(origins = ["http://localhost:9000"])
 @RestController
 internal class CollaboratorController(val service : CollaboratorService) {
 
@@ -18,8 +17,8 @@ internal class CollaboratorController(val service : CollaboratorService) {
         return service.fetchAllCollaborators()
     }
 
-    @PostMapping("/collaborator")
-    fun updateCollaborator(@RequestBody collaborator: Collaborator) {
-        service.updateCollaboratorById(collaborator)
+    @PutMapping("/collaborator/{id}")
+    fun updateCollaborator(@PathVariable id: Long, @RequestBody collaborator: Collaborator) {
+        service.updateCollaborator(collaborator)
     }
 }
