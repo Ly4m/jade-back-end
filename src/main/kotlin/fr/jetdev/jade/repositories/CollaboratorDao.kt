@@ -10,4 +10,6 @@ internal interface CollaboratorDao {
 
     fun fetchAllCollaborators(): List<Collaborator>
 
+    fun updateCollaborator(collaborator: Collaborator)
+
 }
