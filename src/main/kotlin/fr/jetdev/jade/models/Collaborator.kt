@@ -1,6 +1,6 @@
 package fr.jetdev.jade.models
 
-internal data class Collaborator(
+data class Collaborator(
 
         val id: Long = 0,
         val firstName: String = "",
