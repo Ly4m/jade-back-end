@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fr.jetdev.jade.repositories.ActivityReportDao">
+
+    <resultMap id="activityReportMap" type="ActivityReport">
+        <id property="id" column="id"/>
+        <result property="month" column="month"/>
+        <result property="year" column="year"/>
+        <collection property="activities" resultMap="activityMap" columnPrefix="ACTIVITY_"/>
+    </resultMap>
+
+    <select id="fetchActivityReportOfCollaboratorByMonth" resultMap="activityReportMap">
+        SELECT
+            report.id,
+            report.month,
+            report.year,
+
+            activity.id AS ACTIVITY_id,
+            activity."date" AS ACTIVITY_date,
+            activity.duration_in_hour AS ACTIVITY_duration_in_hour,
+
+            type.id as ACTIVITY_TYPE_id,
+            type.label as ACTIVITY_TYPE_label
+
+        FROM activity_report report
+            LEFT JOIN activity ON activity.activity_report_id = report.id
+            LEFT JOIN activity_type type ON activity.activity_type_id = type.id
+        WHERE report.collaborator_id = #{collaboratorId}
+              AND report.month = #{month}
+              AND report.year = #{year}
+    </select>
+
+    <delete id="clearActivityReportById" parameterType="Long">
+        DELETE FROM activity WHERE  activity_report_id = #{reportId}
+    </delete>
+
+</mapper>
