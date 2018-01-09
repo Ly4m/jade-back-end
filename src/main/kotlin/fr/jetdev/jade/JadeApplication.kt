@@ -1,20 +1,11 @@
 package fr.jetdev.jade
 
-import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class JadeApplication {
-
-//    @Bean
-//    fun controller() = CollaboratorController()
-
-
-}
+class JadeApplication
 
 fun main(args: Array<String>) {
-    SpringApplication.run(JadeApplication::class.java, *args)
+    runApplication<JadeApplication>(*args)
 }
-
-
-
