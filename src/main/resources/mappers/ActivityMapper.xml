@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fr.jetdev.jade.repositories.ActivityReportDao">
+
+    <resultMap id="activityMap" type="Activity">
+        <id property="id" column="id"/>
+        <result property="date" column="date"/>
+        <result property="durationInHour" column="duration_in_hour"/>
+        <association columnPrefix="TYPE_" property="activityType" column="activityType" resultMap="activityTypeMap"/>
+    </resultMap>
+
+    <insert id="createActivityList">
+        INSERT INTO activity ("date",
+        duration_in_hour,
+        activity_report_id,
+        activity_type_id)
+        VALUES
+        <foreach collection="activities" item="element" index="index" open="(" separator="),(" close=")">
+            #{element.date},
+            #{element.durationInHour},
+            #{reportId},
+            #{element.activityType.id}
+        </foreach>
+    </insert>
+
+</mapper>

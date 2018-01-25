@@ -7,14 +7,14 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 @Transactional
-internal class CollaboratorService(val collaboratorDao: CollaboratorDao) {
+class CollaboratorService(private val collaboratorDao: CollaboratorDao) {
 
     fun fetchCollaboratorById(collaboratorId: Long): Collaborator? {
         return collaboratorDao.fetchById(collaboratorId)
     }
 
     fun fetchAllCollaborators(): List<Collaborator> {
-        return collaboratorDao.fetchAllCollaborators();
+        return collaboratorDao.fetchAllCollaborators()
     }
 
 }

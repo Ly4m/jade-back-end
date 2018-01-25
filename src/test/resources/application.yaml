@@ -1,0 +1,19 @@
+security:
+  basic:
+    enabled: false
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+
+mybatis:
+  typeAliasesPackage: fr.jetdev.jade.models
+  mapperLocations: classpath*:**/mappers/*.xml
+
+logging:
+  level:
+    org.springframework.boot: ERROR
+    fr.jetdev.jade.repositories.ActivityReportDao: ERROR
