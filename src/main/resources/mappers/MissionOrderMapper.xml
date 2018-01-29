@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="fr.jetdev.jade.repositories.MissionOrderDao">
+
+    <resultMap id="missionOrderResultMap" type="MissionOrder">
+        <id     property="id" column="id" />
+        <result property="collaboratorId" column="collaborator_id" />
+        <result property="clientId" column="client_id" />
+        <result property="startDate" column="start_date" />
+        <result property="endDate" column="end_date" />
+        <result property="addressId" column="addresse_id" />
+    </resultMap>
+
+    <select id="fetchAllMissionOrders" resultMap="missionOrderResultMap">
+        SELECT *
+        FROM mission_order
+    </select>
+
+    <select id="fetchMissionOrderById" resultMap="missionOrderResultMap">
+        SELECT *
+        FROM mission_order
+        WHERE id = #{id}
+    </select>
+
+</mapper>
