@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 @CrossOrigin(origins = ["http://localhost:9000"])
 @RestController
 internal class MissionOrderController(val service: MissionOrderService) {
+    //TODO : Map Client/Collaborator/Address DAO when available
 
     @RequestMapping("/mission-order/{id}")
     fun getCollaborator(@PathVariable id: Long): MissionOrder? {
